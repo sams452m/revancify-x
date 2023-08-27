@@ -1,20 +1,5 @@
 #!/usr/bin/bash
 
-# Colors
-normal='\033[0m'
-red='\033[0;31m'
-green='\033[0;32m'
-orange='\033[0;33m'
-blue='\033[0;34m'
-purple='\033[0;35m'
-cyan='\033[0;36m'
-lightred='\033[1;31m'
-lightgreen='\033[1;32m'
-lightblue='\033[1;34m'
-lightpurple='\033[1;35m'
-lightcyan='\033[1;36m'
-white='\033[1;37m'
-
 servers=("google.com" "raw.githubusercontent.com")
 
 for server in "${servers[@]}"; do
@@ -24,33 +9,12 @@ for server in "${servers[@]}"; do
 done
 
 if [ -z "$TERMUX_VERSION" ]; then
-    printf "${red}Termux hasn't been detected. Are you sure you have installed and are running it?${normal}"
+    echo -e "\e[1;31mTermux not detected !!\e[0m\n\e[1;31mInstall aborted !!\e[0m"
     exit 1
 fi
 
-if [[ -d $HOME/Revancify ]]; then
-    printf "${orange}Old Revancify installation has been detected. Problems may occur${normal}"
-    echo -e "\n1.Proceed wih installation\n2.Delete Revancify and proceed.\n3.Exit"
-    read -p "> " choice
-    if [ -z $choice ]; then
-        echo -e "No option Selected. Exiting...."
-        exit 1
-    elif [ $choice == 1 ];then
-        echo "Continuing Installation of RevancifyX."
-    elif [ $choice == 2 ];then
-        echo "Deleting Revancify."
-        rm -rf $HOME/Revancify
-        echo -e "Done\nProceeding with installation."
-    elif [ $choice == 3 ];then
-        exit 1
-    else
-        echo "Invalid Input. Exiting...."
-        exit 1
-    fi
- fi
- 
 if [ -d "$HOME/RevancifyX" ]; then
-    bash $HOME/RevancifyX/revancify-x
+    ./RevancifyX/revance
     exit 0
 fi
 
@@ -66,10 +30,10 @@ Possible causes of error:
     pkg install git -y -o Dpkg::Options::="--force-confnew"
 fi
 
-if git clone --depth=1 https://github.com/sams452m/revancify-x $HOME/RevancifyX; then
-    bash $HOME/RevancifyX/revancify-x
+if git clone --depth=1 https://github.com/sams452m/RevancifyX.git; then
+    $HOME/RevancifyX/revance
 else
-    echo -e "${red}Couldn't download required resources. Can't proceed${normal}"
+    echo -e "\e[1;31mInstall Failed !!\e[0m"
     echo "Please Try again"
     exit 1
 fi
