@@ -19,7 +19,7 @@ supportedVers=$(jq -r --arg apkmirrorAppName "$apkmirrorAppName" '[.[] | select(
 jq -r -n --arg appName "$appName-"\
     --arg currentVersion "$currentVersion"\
     --argjson supportedVers "$supportedVers"\
-    '($currentVersion | sub(" *[-, ] *"; "-"; "g")) as $installedVer |
+    '($currentVersion | sub(" *[-, ] *"; "-"; "g") | sub(":"; "")) as $installedVer |
     [
         [
             $ARGS.positional[] |
