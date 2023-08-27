@@ -45,7 +45,7 @@
     },
     "YT-Advanced": 
     {
-        "projectName": "ReX",
+        "projectName": "ReX-test",
         "sources": 
         {
             "cli":
@@ -56,12 +56,12 @@
             "patches":
             {
                 "org": "YT-Advanced",
-                "repo": "ReX-patches"
+                "repo": "testpatch"
             },
             "integrations":
             {
                 "org": "YT-Advanced",
-                "repo": "ReX-integrations"
+                "repo": "testinte"
             }
         }
     },
