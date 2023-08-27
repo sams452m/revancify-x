@@ -546,7 +546,7 @@ patchApp() {
     then
         keystore="$storagePath/custom.keystore"
     else
-        keystore="$repoDir"/revx.keystore
+        keystore="$repoDir"/revancify-x.keystore
     fi
     includedPatches=$(jq '.' "$storagePath/$source-patches.json" 2>/dev/null || jq -n '[]')
     patchesArg=$(jq -n -r --argjson includedPatches "$includedPatches" --arg pkgName "$pkgName" '$includedPatches[] | select(.pkgName == $pkgName).includedPatches | if ((. | length) != 0) then (.[] | "-i " + (. | ascii_downcase | sub(" "; "-"; "g"))) else empty end')

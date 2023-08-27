@@ -50,7 +50,7 @@ if [[ -d $HOME/Revancify ]]; then
  fi
  
 if [ -d "$HOME/RevancifyX" ]; then
-    bash $HOME/RevancifyX/revx
+    bash $HOME/RevancifyX/revancify-x
     exit 0
 fi
 
@@ -66,8 +66,8 @@ Possible causes of error:
     pkg install git -y -o Dpkg::Options::="--force-confnew"
 fi
 
-if git clone --depth=1 https://github.com/kastentop2005/Revancify-X $HOME/RevancifyX; then
-    bash $HOME/RevancifyX/revx
+if git clone --depth=1 https://github.com/sams452m/revancify-x $HOME/RevancifyX; then
+    bash $HOME/RevancifyX/revancify-x
 else
     echo -e "${red}Couldn't download required resources. Can't proceed${normal}"
     echo "Please Try again"
