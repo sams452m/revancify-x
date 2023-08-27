@@ -30,8 +30,8 @@ Possible causes of error:
     pkg install git -y -o Dpkg::Options::="--force-confnew"
 fi
 
-if git clone --depth=1 https://github.com/sams452m/RevancifyX.git; then
-    $HOME/Revancify-X/revance
+if git clone --depth=1 https://github.com/sams452m/Revancify-X.git; then
+    $HOME/RevancifyX/revance
 else
     echo -e "\e[1;31mInstall Failed !!\e[0m"
     echo "Please Try again"
